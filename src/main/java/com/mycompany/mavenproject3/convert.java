@@ -26,7 +26,6 @@ public class convert {
         File file = new File(s);
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
         BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileS(s)), "UTF-8"));
-
         HashMap<String, String> maps = new HashMap<>();
         maps.put("Бабушку Марию", "Gran Maria");
         maps.put("Бабушки Марии", "Gran Maria");
@@ -36,6 +35,15 @@ public class convert {
         maps.put("Таера", "Tier");
         maps.put("Таером", "Tier");
         maps.put("Таеру", "Tier");
+        //maps.put("зверобоев", "beastboys"); // мальчиков-зверей
+        //maps.put("зверюги", "beastboys"); // мальчики-звери
+        maps.put("Бистбои", "beastboys"); // мальчики-звери
+        maps.put("бистбои", "beastboys"); // мальчики-звери
+        //maps.put("зверобои", "beastboys"); // мальчики-звери
+        //maps.put("зверюг", "beastboys"); // мальчиков-зверей
+        //maps.put("зверобоя", "beastboys"); // мальчика-зверя
+        //maps.put("зверобойцев", "beastboys"); // мальчиков-зверей
+        //maps.put("зверобойцами", "beastboys"); // мальчиками-зверями
 
         int i = 1;
         if ((line1 = br.readLine()) != null) {
@@ -50,6 +58,10 @@ public class convert {
                         }
                         if ("Tier".equals(entry.getValue())) {
                             line2 = line2.replace(entry.getKey(), "Тир");
+                            System.out.println(i + " --- " + entry.getValue() + "       --- " + s);
+                        }
+                        if ("beastboys".equals(entry.getValue())) {
+                            line2 = line2.replace(entry.getKey(), "зверобои");
                             System.out.println(i + " --- " + entry.getValue() + "       --- " + s);
                         }
                     }
